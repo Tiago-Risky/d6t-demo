@@ -226,7 +226,7 @@ class DetectHumanThread(Thread):
                         for i in range(8):
                                 DetectHuman().updateCelVals(i, valsDetail[i])
                                 global detectionMode
-                                if detectionMode="threshhold":
+                                if detectionMode=="threshhold":
                                         DetectHuman().checkHuman(i)
                                 else:
                                         DetectHuman().checkEntranceCell(i)
