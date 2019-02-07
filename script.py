@@ -228,7 +228,7 @@ class DetectHumanThread(Thread):
                                 global detectionMode
                                 if detectionMode=="threshhold":
                                         DetectHuman().checkHuman(i)
-                                else:
+                                elif detectionMode=="bumps":
                                         DetectHuman().checkEntranceCell(i)
                                         #DetectHuman().checkExitCell(i)
                                         DetectHuman().checkPresence(i)
