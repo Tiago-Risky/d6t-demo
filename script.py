@@ -206,7 +206,7 @@ class DataThread(Thread):
                 else:
                         phrase = "no one"
 
-                DataProcessing().addToFile(webFile, phrase)
+                DataProcessing().overwriteFile(webFile, phrase)
 
                 ## Add this all to the same file?
                 ## Need a way to process this into the table as a annotation
