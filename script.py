@@ -18,6 +18,8 @@ TargetTolerance = 1 # This is the tolerance for when the current value drops bel
 
 TargetTemp = 18 # Temperature to consider a human, above this we will consider it a person
 
+detectionMode = "threshhold" # threshhold or bumps
+
 #CSV file writing
 filePath = "/var/www/html/logfile.csv" # Full file path, properly escaped
 filePathDetail = "/var/www/html/logfile-detail.csv" # Full file path, properly escaped
@@ -223,10 +225,13 @@ class DetectHumanThread(Thread):
                 while notKill:
                         for i in range(8):
                                 DetectHuman().updateCelVals(i, valsDetail[i])
-                                DetectHuman().checkHuman(i)
-                                #DetectHuman().checkEntranceCell(i)
-                                #DetectHuman().checkExitCell(i)
-                                #DetectHuman().checkPresence(i)
+                                global detectionMode
+                                if detectionMode="threshhold":
+                                        DetectHuman().checkHuman(i)
+                                else:
+                                        DetectHuman().checkEntranceCell(i)
+                                        #DetectHuman().checkExitCell(i)
+                                        DetectHuman().checkPresence(i)
                                 
                         time.sleep(pLogFile)
 
