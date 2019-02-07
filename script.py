@@ -21,6 +21,7 @@ TargetTemp = 18 # Temperature to consider a human, above this we will consider i
 #CSV file writing
 filePath = "/var/www/html/logfile.csv" # Full file path, properly escaped
 filePathDetail = "/var/www/html/logfile-detail.csv" # Full file path, properly escaped
+webFile = "./value.txt"
 
 # !!! Make sure the script has permissions to write to these folders !!!
 
@@ -114,6 +115,10 @@ class DataProcessing():
                 F = open(filepath, 'a')
                 F.write(txt)
         
+        def overwriteFile(self, filepath, txt):
+                F = open(filepath, 'w')
+                F.write(txt)
+        
         def buildCsvString(self, time, values):
                 finalString = time + ','
                 for x in range(len(values)):
@@ -190,6 +195,18 @@ class DataThread(Thread):
                 if csv_on:
                         DataProcessing().addToFile(fpDetFinal, stringPrintDetail)
                         DataProcessing().addToFile(fpFinal, stringPrintNormal)
+                
+                flag = False
+                for a in dhPresence:
+                        if a == 1:
+                                flag = True
+                phrase = ""
+                if flag:
+                        phrase = "someone"
+                else:
+                        phrase = "no one"
+
+                DataProcessing().addToFile(webFile, phrase)
 
                 ## Add this all to the same file?
                 ## Need a way to process this into the table as a annotation
