@@ -18,7 +18,7 @@ TargetTolerance = 1 # This is the tolerance for when the current value drops bel
 
 TargetTemp = 18 # Temperature to consider a human, above this we will consider it a person
 
-detectionMode = "threshhold" # threshhold or bumps
+detectionMode = "threshold" # threshold or bumps
 
 #CSV file writing
 filePath = "/var/www/html/logfile.csv" # Full file path, properly escaped
@@ -226,7 +226,7 @@ class DetectHumanThread(Thread):
                         for i in range(8):
                                 DetectHuman().updateCelVals(i, valsDetail[i])
                                 global detectionMode
-                                if detectionMode=="threshhold":
+                                if detectionMode=="threshold":
                                         DetectHuman().checkHuman(i)
                                 elif detectionMode=="bumps":
                                         DetectHuman().checkEntranceCell(i)
