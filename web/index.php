@@ -3,6 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>Is there anyone here?</title>
+    <style>
+    body {
+      font-family: sans-serif;
+      font-size: 20px;
+    }
+    p {
+      text-align: center;
+    }
+    </style>
     <script type="text/javascript">
     function refresh() {
       var req = new XMLHttpRequest();
@@ -11,7 +20,8 @@
           document.getElementById('value').innerText = req.responseText;
         }
       }
-      req.open("GET", 'value.txt', true);
+      var site = window.location.hostname;
+      req.open("GET", site + '/value.txt', true);
       req.send(null);
     }
 

@@ -23,7 +23,7 @@ detectionMode = "threshold" # threshold or bumps
 #CSV file writing
 filePath = "/var/www/html/logfile.csv" # Full file path, properly escaped
 filePathDetail = "/var/www/html/logfile-detail.csv" # Full file path, properly escaped
-webFile = "./value.txt"
+webFile = "/var/www/html/value.txt"
 
 # !!! Make sure the script has permissions to write to these folders !!!
 
