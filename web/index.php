@@ -20,8 +20,7 @@
           document.getElementById('value').innerText = req.responseText;
         }
       }
-      var site = window.location.hostname;
-      req.open("GET", site + '/value.txt', true);
+      req.open("GET", '/value.txt', true);
       req.send(null);
     }
 
@@ -33,7 +32,7 @@
     }
   </script>
 </head>
-<body>
+<body onload="init()">
 <p>There's currently</p>
 <p id="value"></p>
 <p>in the proximate area</p>
